@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <div className="px-4 py-6">
+      <div >
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

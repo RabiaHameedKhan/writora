@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className="w-full bg-pink-50 shadow-md font-sans">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <nav className="w-full bg-white shadow-md border-b border-pink-200 fixed top-0 left-0 z-50">
+      <div className="w-full  px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="text-3xl font-extrabold text-pink-600 tracking-wide">
+        <Link to="/" className="text-4xl font-extrabold text-pink-600 tracking-wide">
           Writora
         </Link>
 
+
         {/* Navigation Links */}
-        <div className="hidden md:flex space-x-8 text-lg text-gray-700 font-medium">
+        <div className="hidden md:flex space-x-8 text-xl text-gray-700 font-medium">
           <Link to="/" className="hover:text-pink-600">Home</Link>
           <Link to="/about" className="hover:text-pink-600">About</Link>
           <Link to="/login" className="hover:text-pink-600">Login</Link>
