@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import bg from '../assets/loginbg.jpg';
+import Animations from '../components/Animations';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -28,6 +29,7 @@ const Login = () => {
   };
 
   return (
+    <Animations delay= {0.2}>
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center px-4 relative"
       style={{
@@ -81,6 +83,7 @@ const Login = () => {
         </p>
       </div>
     </div>
+    </Animations>
   );
 };
 

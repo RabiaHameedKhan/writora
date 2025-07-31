@@ -12,10 +12,11 @@ const Navbar = () => {
 
 
         {/* Navigation Links */}
-        <div className="hidden md:flex space-x-8 text-xl text-gray-700 font-medium">
-          <Link to="/" className="hover:text-pink-600">Home</Link>
-          <Link to="/blogs" className="hover:text-pink-600">Blogs</Link>
-          <Link to="/login" className="hover:text-pink-600">Login</Link>
+        <div className="hidden md:flex space-x-8 text-xl text-pink-600 font-bold">
+          <Link to="/" className="hover:text-gray-500">Home</Link>
+          <Link to="/blogs" className="hover:text-gray-500">Blogs</Link>
+          <Link to="/login" className="hover:text-gray-500">Login</Link>
+          <Link to="/contact" className="hover:text-gray-500">Contact Us</Link>
          
         </div>
 
