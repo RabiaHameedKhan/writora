@@ -40,7 +40,7 @@ const Login = () => {
       <div className="absolute inset-0 bg-pink-200/40 backdrop-brightness-90 backdrop-blur-sm z-0"></div>
 
       {/* Login Box */}
-      <div className="relative z-10 bg-white bg-opacity-80 backdrop-blur-md p-6 rounded-2xl shadow-2xl w-full max-w-md">
+      <div className="relative z-10 bg-rose-50 bg-opacity-80 backdrop-blur-md p-6 rounded-2xl shadow-2xl w-full max-w-md">
         <h2 className="text-3xl font-bold text-pink-600 mb-6 text-center">Welcome 👋</h2>
         
         <form onSubmit={handleLogin}>
