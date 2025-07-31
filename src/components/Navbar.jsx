@@ -14,9 +14,9 @@ const Navbar = () => {
         {/* Navigation Links */}
         <div className="hidden md:flex space-x-8 text-xl text-gray-700 font-medium">
           <Link to="/" className="hover:text-pink-600">Home</Link>
-          <Link to="/about" className="hover:text-pink-600">About</Link>
+          <Link to="/blogs" className="hover:text-pink-600">Blogs</Link>
           <Link to="/login" className="hover:text-pink-600">Login</Link>
-          <Link to="/signup" className="hover:text-pink-600">Signup</Link>
+         
         </div>
 
         {/* Mobile Menu Icon */}
