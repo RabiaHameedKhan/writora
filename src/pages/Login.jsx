@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import bg from '../assets/loginbg.jpg';
 import Animations from '../components/Animations';
+import Footer from '../components/Footer';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -83,6 +84,7 @@ const Login = () => {
         </p>
       </div>
     </div>
+    <Footer></Footer>
     </Animations>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import Animations from "../components/Animations";
+import Footer from "../components/Footer";
 
 const Contact = () => {
   return (
@@ -80,6 +81,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </Animations>
   );
 };
