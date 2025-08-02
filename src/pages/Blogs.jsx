@@ -74,7 +74,7 @@ const Blogs = () => {
         <input
           type="text"
           placeholder="Search by title, tag or author..."
-          className="w-11/12 sm:w-2/3 md:w-1/2 px-5 py-3 rounded-xl shadow-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-200 bg-white"
+          className="w-11/12 sm:w-2/3 md:w-1/2 px-5 py-3 rounded-xl shadow-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-300 transition-all duration-200 bg-white"
         />
       </div>
 
