@@ -73,7 +73,7 @@ const Blogs = () => {
       <div className="w-full flex justify-center mt-[-30px] mb-10">
         <input
           type="text"
-          placeholder="Search by title, tag or author..."
+          placeholder="Search blogs by title, tag or author..."
           className="w-11/12 sm:w-2/3 md:w-1/2 px-5 py-3 rounded-xl shadow-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-300 transition-all duration-200 bg-white"
         />
       </div>
@@ -105,9 +105,11 @@ const Blogs = () => {
                   <div className="text-gray-500 text-sm mb-2">
                     By <span className="font-medium">{blog.author}</span> • {blog.date}
                   </div>
+                  <a href="./login">
                   <button className="text-pink-500 font-medium hover:underline">
                     Read More →
                   </button>
+                  </a>
                 </div>
               </div>
             ))}

@@ -1,9 +1,15 @@
 import React from 'react'
+import bg from '../assets/loginbg.jpg'
 
 const Signup = ()=>{
     return(
     <>
-        <h1>Signup</h1>
+        <div className='flex justify-center min-h-screen items items-center bg-center px-4 relatibe bg-cover '
+        style={{
+            backgroundImage: `url(${bg})`}
+        }>
+
+        </div>
     </>
     );
 }
