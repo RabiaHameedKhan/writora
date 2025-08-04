@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Blogs from './pages/Blogs';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
-import Signup from './pages/Signup';
+import Signup from './pages/Signup'; 
 
 function App() {
   return (
