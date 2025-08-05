@@ -6,7 +6,7 @@ import Blogs from './pages/Blogs';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
 import Signup from './pages/Signup';
-import Scroll from './components/scroll'; 
+import Scroll from './components/Scroll'; 
 
 function App() {
   return (
