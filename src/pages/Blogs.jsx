@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Animations from "../components/Animations";
 import Footer from "../components/Footer";
@@ -16,19 +16,29 @@ import tech from "../assets/categories/tech.jpg";
 import health from "../assets/categories/health.jpg";
 import education from "../assets/categories/education.jpg";
 
-const categories = [
-  { name: "Tech", image: tech },
-  { name: "Food", image: food },
-  { name: "Music", image: music },
-  { name: "Lifestyle", image: lifestyle },
-  { name: "Beauty", image: beauty },
-  { name: "Sports", image: sports },
-  { name: "Education", image: education },
-  { name: "Health", image: health },
-];
-
 const Blogs = () => {
   const navigate = useNavigate();
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  const categories = [
+    { name: "Tech", image: tech },
+    { name: "Food", image: food },
+    { name: "Music", image: music },
+    { name: "Lifestyle", image: lifestyle },
+    { name: "Beauty", image: beauty },
+    { name: "Sports", image: sports },
+    { name: "Education", image: education },
+    { name: "Health", image: health },
+  ];
+
+  const filteredCategories = searchTerm
+    ? categories.filter((cat) =>
+        cat.name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : categories;
 
   const blogs = [
     {
@@ -70,21 +80,88 @@ const Blogs = () => {
       </section>
 
       {/* Search Bar */}
-      <div className="w-full flex justify-center mt-[-30px] mb-10">
+      <div className="w-full flex flex-col items-center mt-[-30px] mb-10 relative">
         <input
           type="text"
-          placeholder="Search blogs by title, tag or author..."
+          value={searchTerm}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+            setSelectedCategory(null);
+            setShowSuggestions(true);
+          }}
+          onFocus={() => setShowSuggestions(true)}
+          onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
+          placeholder="Search blogs by category..."
           className="w-11/12 sm:w-2/3 md:w-1/2 px-5 py-3 rounded-xl shadow-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-300 transition-all duration-200 bg-white"
         />
+
+        {showSuggestions && (
+          <div className="absolute top-full mt-2 w-11/12 sm:w-2/3 md:w-1/2 bg-white border border-gray-200 rounded-xl shadow-md z-10 max-h-60 overflow-y-auto">
+            {filteredCategories.length > 0 ? (
+              filteredCategories.map((cat, index) => (
+                <div
+                  key={index}
+                  onClick={() => {
+                    setSearchTerm(cat.name);
+                    setSelectedCategory(cat.name);
+                    setShowSuggestions(false);
+                  }}
+                  className="px-4 py-2 cursor-pointer hover:bg-pink-100 text-gray-700"
+                >
+                  {cat.name}
+                </div>
+              ))
+            ) : (
+              <div className="px-4 py-2 text-gray-400">No category found</div>
+            )}
+          </div>
+        )}
       </div>
 
       <Animations delay={0.2}>
-        {/* Latest Blogs Section */}
+       
+
+        {/* Categories Section */}
+        <section className="px-4 md:px-10 lg:px-20 pb-20">
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6">
+            Explore by Categories
+          </h2>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+            {(selectedCategory
+              ? categories.filter((cat) => cat.name === selectedCategory)
+              : searchTerm && filteredCategories.length === 0
+              ? []
+              : categories
+            ).map((cat, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-xl shadow hover:shadow-md transition-all duration-300 overflow-hidden cursor-pointer"
+              >
+                <img
+                  src={cat.image}
+                  alt={cat.name}
+                  className="w-full h-32 object-cover hover:shadow-lg hover:scale-[1.05] transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div className="p-3 text-center">
+                  <h3 className="text-pink-600 font-medium">{cat.name}</h3>
+                </div>
+              </div>
+            ))}
+            {searchTerm && filteredCategories.length === 0 && (
+              <div className="col-span-full text-center text-gray-400">
+                No category found.
+              </div>
+            )}
+          </div>
+        </section>
+
+         {/* Latest Blogs */}
         <section className="px-4 md:px-10 lg:px-20 pb-16">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6">
             Latest Blogs
           </h2>
-
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => (
               <div
@@ -106,9 +183,9 @@ const Blogs = () => {
                     By <span className="font-medium">{blog.author}</span> • {blog.date}
                   </div>
                   <a href="./login">
-                  <button className="text-pink-500 font-medium hover:underline">
-                    Read More →
-                  </button>
+                    <button className="text-pink-500 font-medium hover:underline">
+                      Read More →
+                    </button>
                   </a>
                 </div>
               </div>
@@ -116,33 +193,7 @@ const Blogs = () => {
           </div>
         </section>
 
-        {/* Categories Section */}
-        <section className="px-4 md:px-10 lg:px-20 pb-20">
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6">
-            Explore by Categories
-          </h2>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-            {categories.map((cat, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-xl shadow hover:shadow-md transition-all duration-300 overflow-hidden cursor-pointer"
-              >
-                <img
-                  src={cat.image}
-                  alt={cat.name}
-                  className="w-full h-32 object-cover hover:shadow-lg hover:scale-[1.05] transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="p-3 text-center">
-                  <h3 className="text-pink-600 font-medium">{cat.name}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Publish CTA Section */}
+        {/* CTA Section */}
         <section className="px-4 md:px-10 lg:px-20 pb-20">
           <div className="bg-gradient-to-r from-pink-100 via-rose-100 to-pink-50 rounded-xl py-8 px-6 md:px-12 shadow-lg flex flex-col md:flex-row items-center justify-between text-center md:text-left">
             <div className="mb-4 md:mb-0">
@@ -162,9 +213,8 @@ const Blogs = () => {
           </div>
         </section>
       </Animations>
-      <Footer></Footer>
+      <Footer />
     </div>
-    
   );
 };
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import bg from '../assets/loginbg.jpg';
 import Animations from '../components/Animations';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -99,7 +100,9 @@ const Signup = () => {
 
           <p className="text-center text-sm text-gray-600 mt-4">
             Already have an account?{' '}
-            <a href="/login" className="text-pink-500 hover:underline">Login</a>
+            <Link to="/login" className="text-pink-500 hover:underline">
+    Login
+  </Link>
           </p>
         </div>
       </div>

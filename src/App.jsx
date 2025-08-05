@@ -5,13 +5,15 @@ import Home from './pages/Home';
 import Blogs from './pages/Blogs';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
-import Signup from './pages/Signup'; 
+import Signup from './pages/Signup';
+import Scroll from './components/scroll'; 
 
 function App() {
   return (
     <Router>
       <Navbar />
       <div >
+      <Scroll/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<Blogs />} />
