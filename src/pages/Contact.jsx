@@ -1,6 +1,7 @@
 import React from "react";
 import Animations from "../components/Animations";
 import Footer from "../components/Footer";
+import {Link} from 'react-router-dom';
 
 const Contact = () => {
   return (
@@ -71,12 +72,14 @@ const Contact = () => {
                 ></textarea>
               </div>
 
+              <Link to="./login">
               <button
                 type="submit"
                 className="bg-rose-100 hover:bg-pink-200 text-pink-600 font-semibold py-2 px-6 rounded-md mt-2 transition-all"
               >
                 Submit
               </button>
+              </Link>
             </form>
           </div>
         </div>

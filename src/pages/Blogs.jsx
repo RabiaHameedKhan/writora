@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Animations from "../components/Animations";
 import Footer from "../components/Footer";
+import {Link} from 'react-router-dom';
 
 import blog1 from "../assets/blog1.jpg";
 import blog2 from "../assets/blog2.jpg";
@@ -182,11 +183,11 @@ const Blogs = () => {
                   <div className="text-gray-500 text-sm mb-2">
                     By <span className="font-medium">{blog.author}</span> • {blog.date}
                   </div>
-                  <a href="./login">
-                    <button className="text-pink-500 font-medium hover:underline">
-                      Read More →
-                    </button>
-                  </a>
+                 <Link to="/login">
+  <button className="text-pink-500 font-medium hover:underline">
+    Read More →
+  </button>
+</Link>
                 </div>
               </div>
             ))}
