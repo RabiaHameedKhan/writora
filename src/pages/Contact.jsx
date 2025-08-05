@@ -9,7 +9,7 @@ const Contact = () => {
       <div className="min-h-screen bg-rose-50 flex items-center justify-center px-6 pt-28 sm:pt-32 pb-12">
         <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 bg-white rounded-3xl shadow-md p-8">
           
-          {/* Left Side: Contact Info */}
+          
           <div className="space-y-6">
             <h2 className="text-3xl font-bold text-pink-600">Contact Us</h2>
             <p className="text-gray-500 font-medium">
