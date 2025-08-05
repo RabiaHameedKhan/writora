@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import bg from '../assets/loginbg.jpg';
 import Animations from '../components/Animations';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -79,9 +80,12 @@ const Login = () => {
           <p className="text-red-600 text-center mt-2">{error}</p>
         )}
 
-        <p className="text-center text-sm text-gray-600 mt-4">
-          Don’t have an account? <a href="/signup" className="text-pink-500 hover:underline">Signup</a>
-        </p>
+       <p className="text-center text-sm text-gray-600 mt-4">
+  Don’t have an account?{" "}
+  <Link to="/signup" className="text-pink-500 hover:underline">
+    Signup
+  </Link>
+</p>
       </div>
     </div>
     <Footer></Footer>
