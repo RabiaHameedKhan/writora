@@ -6,6 +6,7 @@ import Blogs from './pages/Blogs';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
 import Signup from './pages/Signup';
+import BlogDetail from './pages/BlogDetail';
 import Scroll from './components/Scroll'; 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup" element={<Signup />} />
+         <Route path="/blogdetail/:id" element={<BlogDetail />} />
+
         </Routes>
       </div>
     </Router>

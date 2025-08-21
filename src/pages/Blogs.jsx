@@ -42,31 +42,31 @@ const Blogs = () => {
     : categories;
 
   const blogs = [
-    {
-      id: 1,
-      title: "5 Lessons I Learned from Solo Traveling",
-      excerpt: "Traveling alone teaches you more than just navigating places...",
-      author: "Emily Azel",
-      date: "July 30, 2025",
-      image: blog1,
-    },
-    {
-      id: 2,
-      title: "Designing with Purpose: Blog UI Tips",
-      excerpt: "Good design is not about looks — it’s about experience...",
-      author: "Ali Khan",
-      date: "July 27, 2025",
-      image: blog2,
-    },
-    {
-      id: 3,
-      title: "Why Writing Daily Changes Your Mind",
-      excerpt: "Writing is not just self-expression. It's self-discovery...",
-      author: "Rabia Khan",
-      date: "July 25, 2025",
-      image: blog3,
-    },
-  ];
+  {
+    id: 1,
+    title: "5 Lessons I Learned from Solo Traveling",
+    excerpt: "Traveling alone teaches you more than just navigating places...",
+    author: "Emily Azel",
+    date: "July 30, 2025",
+    image: blog1,
+  },
+  {
+    id: 2,
+    title: "Designing with Purpose: Blog UI Tips",
+    excerpt: "Good design is not about looks — it’s about experience...",
+    author: "Ali Khan",
+    date: "July 27, 2025",
+    image: blog2,
+  },
+  {
+    id: 3,
+    title: "Why Writing Daily Changes Your Mind",
+    excerpt: "Writing is not just self-expression. It's self-discovery...",
+    author: "Rabia Khan",
+    date: "July 25, 2025",
+    image: blog3,
+  },
+];
 
   return (
     <div className="w-full">
@@ -183,7 +183,7 @@ const Blogs = () => {
                   <div className="text-gray-500 text-sm mb-2">
                     By <span className="font-medium">{blog.author}</span> • {blog.date}
                   </div>
-                 <Link to="/login">
+                 <Link to={`/blogdetail/${blog.id}`}>
   <button className="text-pink-500 font-medium hover:underline">
     Read More →
   </button>
