@@ -11,6 +11,7 @@ import Scroll from './components/Scroll';
 import PublishBlog from './pages/PublishBlog';
 
 
+
 function App() {
   return (
     <Router>
@@ -25,6 +26,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
          <Route path="/blogdetail/:id" element={<BlogDetail />} />
          <Route path="/publish" element={<PublishBlog/>} />
+        
 
         </Routes>
       </div>
