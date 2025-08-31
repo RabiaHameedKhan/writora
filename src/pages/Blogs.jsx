@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Animations from "../components/Animations";
 import Footer from "../components/Footer";
-import {Link} from 'react-router-dom';
+import { dataCategories } from "../data/dataCategories"; // ✅ import your blogs data
 
+// sample local blogs (Latest Blogs)
 import blog1 from "../assets/blog1.jpg";
 import blog2 from "../assets/blog2.jpg";
 import blog3 from "../assets/blog3.jpg";
 
+// category images
 import sports from "../assets/categories/sports.jpg";
 import beauty from "../assets/categories/beauty.jpg";
 import music from "../assets/categories/music.jpg";
@@ -24,6 +26,7 @@ const Blogs = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
+  // categories with images
   const categories = [
     { name: "Tech", image: tech },
     { name: "Food", image: food },
@@ -41,32 +44,40 @@ const Blogs = () => {
       )
     : categories;
 
+  // local "latest blogs" (static)
   const blogs = [
-  {
-    id: 1,
-    title: "5 Lessons I Learned from Solo Traveling",
-    excerpt: "Traveling alone teaches you more than just navigating places...",
-    author: "Emily Azel",
-    date: "July 30, 2025",
-    image: blog1,
-  },
-  {
-    id: 2,
-    title: "Designing with Purpose: Blog UI Tips",
-    excerpt: "Good design is not about looks — it’s about experience...",
-    author: "Ali Khan",
-    date: "July 27, 2025",
-    image: blog2,
-  },
-  {
-    id: 3,
-    title: "Why Writing Daily Changes Your Mind",
-    excerpt: "Writing is not just self-expression. It's self-discovery...",
-    author: "Rabia Khan",
-    date: "July 25, 2025",
-    image: blog3,
-  },
-];
+    {
+      id: 1,
+      title: "5 Lessons I Learned from Solo Traveling",
+      excerpt: "Traveling alone teaches you more than just navigating places...",
+      author: "Emily Azel",
+      date: "July 30, 2025",
+      image: blog1,
+    },
+    {
+      id: 2,
+      title: "Designing with Purpose: Blog UI Tips",
+      excerpt: "Good design is not about looks — it’s about experience...",
+      author: "Ali Khan",
+      date: "July 27, 2025",
+      image: blog2,
+    },
+    {
+      id: 3,
+      title: "Why Writing Daily Changes Your Mind",
+      excerpt: "Writing is not just self-expression. It's self-discovery...",
+      author: "Rabia Khan",
+      date: "July 25, 2025",
+      image: blog3,
+    },
+  ];
+
+  // find blogs for selected category
+  const categoryBlogs = selectedCategory
+    ? dataCategories.find(
+        (cat) => cat.category.toLowerCase() === selectedCategory.toLowerCase()
+      )?.blogs || []
+    : [];
 
   return (
     <div className="w-full">
@@ -120,45 +131,95 @@ const Blogs = () => {
       </div>
 
       <Animations delay={0.2}>
-       
-
         {/* Categories Section */}
-        <section className="px-4 md:px-10 lg:px-20 pb-20">
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6">
-            Explore by Categories
-          </h2>
+        {!selectedCategory && (
+          <section className="px-4 md:px-10 lg:px-20 pb-20">
+            <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6">
+              Explore by Categories
+            </h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-            {(selectedCategory
-              ? categories.filter((cat) => cat.name === selectedCategory)
-              : searchTerm && filteredCategories.length === 0
-              ? []
-              : categories
-            ).map((cat, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-xl shadow hover:shadow-md transition-all duration-300 overflow-hidden cursor-pointer"
-              >
-                <img
-                  src={cat.image}
-                  alt={cat.name}
-                  className="w-full h-32 object-cover hover:shadow-lg hover:scale-[1.05] transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="p-3 text-center">
-                  <h3 className="text-pink-600 font-medium">{cat.name}</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+              {categories.map((cat, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => setSelectedCategory(cat.name)}
+                  className="bg-white rounded-xl shadow hover:shadow-md transition-all duration-300 overflow-hidden cursor-pointer"
+                >
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="w-full h-32 object-cover hover:shadow-lg hover:scale-[1.05] transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <div className="p-3 text-center">
+                    <h3 className="text-pink-600 font-medium">{cat.name}</h3>
+                  </div>
                 </div>
-              </div>
-            ))}
-            {searchTerm && filteredCategories.length === 0 && (
-              <div className="col-span-full text-center text-gray-400">
-                No category found.
-              </div>
-            )}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
+        )}
 
-         {/* Latest Blogs */}
+        {/* Category Blogs (Dynamic from dataCategories.js) */}
+        {selectedCategory && (
+          <section className="px-4 md:px-10 lg:px-20 pb-16">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
+                {selectedCategory} Blogs
+              </h2>
+              {/* ✅ Back to categories button */}
+              <button
+                onClick={() => setSelectedCategory(null)}
+                className="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition"
+              >
+                ← Back to Categories
+              </button>
+            </div>
+
+            {categoryBlogs.length > 0 ? (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {categoryBlogs.map((blog) => (
+                  <div
+                    key={blog.id}
+                    className="bg-white rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-in-out cursor-pointer"
+                  >
+                    <img
+                      src={blog.image}
+                      alt={blog.title}
+                      loading="lazy"
+                      className="w-full h-48 object-cover rounded-t-xl"
+                    />
+                    <div className="p-5">
+                      <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                        {blog.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-3">
+                        {blog.description}
+                      </p>
+                      {blog.author && blog.date && (
+                        <div className="text-gray-500 text-sm mb-2">
+                          By <span className="font-medium">{blog.author}</span> •{" "}
+                          {blog.date}
+                        </div>
+                      )}
+                      <Link to={`/blogdetail/${blog.id}`}>
+                        <button className="text-pink-500 font-medium hover:underline">
+                          Read More →
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-gray-500">
+                No blogs available for this category.
+              </p>
+            )}
+          </section>
+        )}
+
+        {/* Latest Blogs */}
         <section className="px-4 md:px-10 lg:px-20 pb-16">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6">
             Latest Blogs
@@ -181,13 +242,14 @@ const Blogs = () => {
                   </h3>
                   <p className="text-gray-600 text-sm mb-3">{blog.excerpt}</p>
                   <div className="text-gray-500 text-sm mb-2">
-                    By <span className="font-medium">{blog.author}</span> • {blog.date}
+                    By <span className="font-medium">{blog.author}</span> •{" "}
+                    {blog.date}
                   </div>
-                 <Link to={`/blogdetail/${blog.id}`}>
-  <button className="text-pink-500 font-medium hover:underline">
-    Read More →
-  </button>
-</Link>
+                  <Link to={`/blogdetail/${blog.id}`}>
+                    <button className="text-pink-500 font-medium hover:underline">
+                      Read More →
+                    </button>
+                  </Link>
                 </div>
               </div>
             ))}
