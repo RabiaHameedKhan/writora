@@ -206,7 +206,7 @@ const Blogs = () => {
               </p>
             </div>
             <button
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/publish")}
               className="mt-4 md:mt-0 bg-pink-600 hover:bg-pink-700 text-white font-medium px-6 py-2 rounded-full transition-all duration-300"
             >
               Continue →

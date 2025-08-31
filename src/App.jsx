@@ -8,6 +8,8 @@ import Contact from './pages/Contact';
 import Signup from './pages/Signup';
 import BlogDetail from './pages/BlogDetail';
 import Scroll from './components/Scroll'; 
+import PublishBlog from './pages/PublishBlog';
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup" element={<Signup />} />
          <Route path="/blogdetail/:id" element={<BlogDetail />} />
+         <Route path="/publish" element={<PublishBlog/>} />
 
         </Routes>
       </div>
