@@ -1,4 +1,4 @@
-// src/data/dataCategories.js
+// sepaaret file made for data in categories(blogs for each category)
 export const dataCategories = [
   {
     id: 1,

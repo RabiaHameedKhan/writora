@@ -1,4 +1,4 @@
-// src/data/dataBlogs.js
+// separata file made for data in the blogs page(full content of latest blogss)
 import blog1 from "../assets/blog1.jpg";
 import blog2 from "../assets/blog2.jpg";
 import blog3 from "../assets/blog3.jpg";

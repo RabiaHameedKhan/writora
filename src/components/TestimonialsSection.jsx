@@ -30,10 +30,10 @@ const TestimonialsSection = () => {
               key={index}
               className="bg-pink-600 text-white w-56 aspect-square flex flex-col items-center justify-center p-5 rounded-full text-sm sm:text-base shadow-md transition-all duration-300 hover:scale-105 animate-[float_5s_ease-in-out_infinite]"
               style={{
-                transform: `rotate(${index % 2 === 0 ? "-2deg" : "2deg"})`,
+                transform: `rotate(${index % 2 === 0 ? "-2deg" : "2deg"})`, //moving animnation for circles
               }}
             >
-              {/* ⭐ Light Pink Stars */}
+              
               <div className="flex gap-1 mb-2 text-pink-200">
                 {[...Array(5)].map((_, i) => (
                   <FaStar key={i} size={16} />

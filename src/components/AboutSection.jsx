@@ -8,7 +8,7 @@ const AboutSection = () => {
     <Animations delay={0.2}>
     <section className="w-full bg-white py-16 px-6 md:px-20">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        {/* Image */}
+       
         <div className="w-full">
           <img
             src={aboutImage}
@@ -17,7 +17,7 @@ const AboutSection = () => {
           />
         </div>
 
-        {/* Text */}
+        
         <div className="flex flex-col gap-6">
           <h2 className="text-4xl font-bold text-pink-600">About Writora</h2>
           <p className="text-gray-600 text-xl leading-relaxed">

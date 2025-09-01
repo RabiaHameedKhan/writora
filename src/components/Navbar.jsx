@@ -7,12 +7,12 @@ const Navbar = () => {
   return (
     <nav className="w-full bg-white shadow-md border-b border-pink-200 fixed top-0 left-0 z-50">
       <div className="w-full px-4 py-4 flex justify-between items-center">
-        {/* Logo */}
+        {/* logo */}
         <Link to="/" className="text-4xl font-extrabold text-pink-600 tracking-wide">
           Writora
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* responsiveness for dektop */}
         <div className="hidden md:flex space-x-8 text-xl text-pink-600 font-bold">
           <Link to="/" className="hover:text-gray-500">Home</Link>
           <Link to="/blogs" className="hover:text-gray-500">Blogs</Link>
@@ -20,7 +20,7 @@ const Navbar = () => {
           <Link to="/contact" className="hover:text-gray-500">Contact Us</Link>
         </div>
 
-        {/* Mobile Menu Icon */}
+        {/* Mobile navbar icon*/}
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -33,12 +33,12 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile navbar dropdown */}
       {isOpen && (
         <div className="md:hidden flex flex-col px-4 pb-4 space-y-3 text-pink-600 font-bold text-lg bg-white shadow">
           <Link to="/" onClick={() => setIsOpen(false)} className="hover:text-gray-500">Home</Link>
           <Link to="/blogs" onClick={() => setIsOpen(false)} className="hover:text-gray-500">Blogs</Link>
-          <Link to="/login" onClick={() => setIsOpen(false)} className="hover:text-gray-500">Login</Link>
+          <Link to="/login" onClick={() => setIsOpen(false)} className="hover:text-gray-500">Publish</Link>
           <Link to="/contact" onClick={() => setIsOpen(false)} className="hover:text-gray-500">Contact Us</Link>
         </div>
       )}
