@@ -43,7 +43,7 @@ const Blogs = () => {
       )
     : categories;
 
-  //  "latest blogs" 
+  //  latest blogs
   const blogs = [
     {
       id: 1,
@@ -80,7 +80,9 @@ const Blogs = () => {
 
   return (
     <div className="w-full">
+
       {/* Hero Section */}
+
       <section className="w-full bg-gradient-to-r from-rose-100 to-pink-50 py-20 px-4 my-10 text-center">
         <h1 className="text-4xl md:text-5xl font-bold text-pink-600 mb-4">
           Unfold Stories, Ideas & Insights
@@ -90,7 +92,8 @@ const Blogs = () => {
         </p>
       </section>
 
-      {/* Search Bar */}
+      {/* search Bar */}
+
       <div className="w-full flex flex-col items-center mt-[-30px] mb-10 relative">
         <input
           type="text"
@@ -100,7 +103,7 @@ const Blogs = () => {
             setSelectedCategory(null);
             setShowSuggestions(true);
           }}
-          
+
           onFocus={() => setShowSuggestions(true)}
           onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
           placeholder="Search blogs by category..."
@@ -131,7 +134,10 @@ const Blogs = () => {
       </div>
 
       <Animations delay={0.2}>
+
+
         {/* Categories Section */}
+
         {!selectedCategory && (
           <section className="px-4 md:px-10 lg:px-20 pb-20">
             <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6">
@@ -161,16 +167,18 @@ const Blogs = () => {
         )}
 
         {/* Category Blogs (Dynamic from dataCategories.js) */}
+
+
         {selectedCategory && (
           <section className="px-4 md:px-10 lg:px-20 pb-16">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
                 {selectedCategory} Blogs
               </h2>
-              {/* ✅ Back to categories button */}
+              {/* button to go back to alll c atregories*/}
               <button
                 onClick={() => setSelectedCategory(null)}
-                className="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition"
+                className="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition"
               >
                 ← Back to Categories
               </button>
@@ -186,14 +194,14 @@ const Blogs = () => {
                     <img
                       src={blog.image}
                       alt={blog.title}
-                      loading="lazy"
+                    loading="lazy"
                       className="w-full h-48 object-cover rounded-t-xl"
                     />
                     <div className="p-5">
                       <h3 className="text-xl font-semibold text-gray-800 mb-2">
                         {blog.title}
                       </h3>
-                      <p className="text-gray-600 text-sm mb-3">
+               <p className="text-gray-600 text-sm mb-3">
                         {blog.description}
                       </p>
                       {blog.author && blog.date && (
@@ -203,7 +211,7 @@ const Blogs = () => {
                         </div>
                       )}
                       <Link to={`/blogdetail/${blog.id}`}>
-                        <button className="text-pink-500 font-medium hover:underline">
+                        <button className="text-pink-600 font-medium hover:underline">
                           Read More →
                         </button>
                       </Link>
@@ -219,7 +227,7 @@ const Blogs = () => {
           </section>
         )}
 
-        {/* Latest Blogs */}
+        {/* laatest blog section */}
         <section className="px-4 md:px-10 lg:px-20 pb-16">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6">
             Latest Blogs
@@ -256,7 +264,8 @@ const Blogs = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* publish banner section */}
+        
         <section className="px-4 md:px-10 lg:px-20 pb-20">
           <div className="bg-gradient-to-r from-pink-100 via-rose-100 to-pink-50 rounded-xl py-8 px-6 md:px-12 shadow-lg flex flex-col md:flex-row items-center justify-between text-center md:text-left">
             <div className="mb-4 md:mb-0">

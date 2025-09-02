@@ -109,7 +109,7 @@ const PublishBlog = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full py-3 bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-xl shadow-md transition"
+                className="w-full py-3 bg-pink-600 hover:bg-pink-600 text-white font-semibold rounded-xl shadow-md transition"
               >
                 Publish Blog
               </button>
