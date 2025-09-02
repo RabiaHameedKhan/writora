@@ -38,7 +38,7 @@ const Navbar = () => {
         <div className="md:hidden flex flex-col px-4 pb-4 space-y-3 text-pink-600 font-bold text-lg bg-white shadow">
           <Link to="/" onClick={() => setIsOpen(false)} className="hover:text-gray-500">Home</Link>
           <Link to="/blogs" onClick={() => setIsOpen(false)} className="hover:text-gray-500">Blogs</Link>
-          <Link to="/login" onClick={() => setIsOpen(false)} className="hover:text-gray-500">Publish</Link>
+          <Link to="/publish" onClick={() => setIsOpen(false)} className="hover:text-gray-500">Publish</Link>
           <Link to="/contact" onClick={() => setIsOpen(false)} className="hover:text-gray-500">Contact Us</Link>
         </div>
       )}
