@@ -28,7 +28,7 @@ const Login = () => {
       setError("Something went wrong. Please try again.");
       console.error(err);
     }
-  };
+  }; //will be used later when i will add authentication in login page
 
   return (
     <Animations delay= {0.2}>
@@ -38,12 +38,12 @@ const Login = () => {
         backgroundImage: `url(${bg})`,
       }}
     >
-      {/* Soft Transparent Overlay */}
+      
       <div className="absolute inset-0 bg-pink-200/40 backdrop-brightness-90 backdrop-blur-sm z-0"></div>
 
       {/* Login Box */}
       <div className="relative z-10 bg-rose-50 bg-opacity-80 backdrop-blur-md p-6 rounded-2xl shadow-2xl w-full max-w-md">
-        <h2 className="text-3xl font-bold text-pink-600 mb-6 text-center">Welcome 👋</h2>
+        <h2 className="text-3xl font-bold text-pink-600 mb-6 text-center">Welcome </h2>
         
         <form onSubmit={handleLogin}>
           <div className="mb-4">

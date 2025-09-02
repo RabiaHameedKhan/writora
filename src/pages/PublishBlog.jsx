@@ -7,18 +7,18 @@ const PublishBlog = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState("");
-  const [submitted, setSubmitted] = useState(false); // ✅ new state
+  const [submitted, setSubmitted] = useState(false); 
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // stop page reload
-    setSubmitted(true); // ✅ show thank-you page
+    e.preventDefault(); 
+    setSubmitted(true); // show thankyou page
   };
 
   return (
     <main
       className="min-h-screen bg-cover bg-center flex items-center justify-center px-6 py-12 pt-28 relative"
       style={{
-        backgroundImage: `url(${bg})`, // ✅ use imported image here
+        backgroundImage: `url(${bg})`, 
       }}
     >
       <div className="absolute inset-0 bg-pink-200/40 backdrop-brightness-90 backdrop-blur-sm z-0"></div>
@@ -26,13 +26,13 @@ const PublishBlog = () => {
       <div className="relative w-full max-w-3xl bg-white rounded-2xl shadow-lg border border-pink-100 p-8">
         {!submitted ? (
           <>
-            {/* Page Heading */}
+            
             <h2 className="text-2xl font-bold text-pink-600 mb-6 text-center">
               Publish Your Blog
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name */}
+              
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Your Name
@@ -46,8 +46,6 @@ const PublishBlog = () => {
                   required
                 />
               </div>
-
-              {/* Email */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Your Email
@@ -62,7 +60,7 @@ const PublishBlog = () => {
                 />
               </div>
 
-              {/* Title */}
+              
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Blog Title
@@ -77,7 +75,9 @@ const PublishBlog = () => {
                 />
               </div>
 
-              {/* Image URL */}
+        
+
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Blog Image (URL)
@@ -91,7 +91,7 @@ const PublishBlog = () => {
                 />
               </div>
 
-              {/* Content */}
+             
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Blog Content
@@ -116,7 +116,7 @@ const PublishBlog = () => {
             </form>
           </>
         ) : (
-          // ✅ Thank You Page
+          // Thank You Page , show afterfr blog submiitted
           <div className="text-center py-12">
             <h2 className="text-3xl font-bold text-pink-600 mb-4">
               Thank You!

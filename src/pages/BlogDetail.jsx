@@ -37,7 +37,7 @@ export default function BlogDetail() {
   return (
     <main className="bg-gray-50 min-h-screen">
       <div className="px-4 md:px-16 lg:px-32 py-12">
-        {/* Back Button */}
+       
         <Link
           to="/blogs"
           className="text-pink-600 hover:text-pink-700 text-sm mb-6 inline-block font-medium"
@@ -45,15 +45,16 @@ export default function BlogDetail() {
           ← Back to Blogs
         </Link>
 
-        {/* Blog Title */}
+       
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-snug">
           {blog.title}
         </h1>
 
-        {/* Author & Date */}
+        
         <div className="flex items-center gap-3 mb-8">
           <img
-            src={`https://i.pravatar.cc/100?u=${blog.author}`}
+            src={`https://i.pravatar.cc/100?u=${blog.author}`} //Uses Pravatar service for author avatar rzndom
+
             alt={blog.author}
             className="w-10 h-10 rounded-full"
           />
@@ -63,7 +64,7 @@ export default function BlogDetail() {
           </div>
         </div>
 
-        {/* Featured Image */}
+        
         <div className="mb-10 -mx-4 md:-mx-16 lg:-mx-32">
           <img
             src={blog.image}

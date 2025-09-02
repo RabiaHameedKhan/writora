@@ -1,3 +1,4 @@
+//separate component made for animations which will be used i  all other pages as a element
 import { animations, motion } from "framer-motion";
 
 const Animations = ({ children, delay = 0 }) => {

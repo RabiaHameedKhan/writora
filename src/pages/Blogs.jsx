@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Animations from "../components/Animations";
 import Footer from "../components/Footer";
-import { dataCategories } from "../data/dataCategories"; // ✅ import your blogs data
+import { dataCategories } from "../data/dataCategories"; 
 
-// sample local blogs (Latest Blogs)
 import blog1 from "../assets/blog1.jpg";
 import blog2 from "../assets/blog2.jpg";
 import blog3 from "../assets/blog3.jpg";
@@ -44,7 +43,7 @@ const Blogs = () => {
       )
     : categories;
 
-  // local "latest blogs" (static)
+  //  "latest blogs" 
   const blogs = [
     {
       id: 1,
@@ -101,6 +100,7 @@ const Blogs = () => {
             setSelectedCategory(null);
             setShowSuggestions(true);
           }}
+          
           onFocus={() => setShowSuggestions(true)}
           onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
           placeholder="Search blogs by category..."

@@ -41,7 +41,7 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Right Side: Form */}
+          {/* Right Side   Form */}
           <div className="bg-pink-600 rounded-2xl p-8 shadow-inner">
             <h3 className="text-3xl font-medium text-white mb-6">Get in Touch!</h3>
             <form className="space-y-4">

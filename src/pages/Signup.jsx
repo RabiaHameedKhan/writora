@@ -36,7 +36,7 @@ const Signup = () => {
       setError('Something went wrong. Please try again.');
       console.error(err);
     }
-  };
+  };// will beu used later for authentication
 
   return (
     <Animations delay={0.2}>
